@@ -1,0 +1,62 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
+
+public class Main {
+    public static void main(String[] args) {
+        WebDriverManager.chromedriver().setup();  // Driver Kurduk
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://demoqa.com/text-box");
+        driver.manage().window().maximize();
+
+
+        JavascriptExecutor jsx =(JavascriptExecutor) driver;
+        jsx.executeScript("window.scrollBy(0,200)","");
+
+        /* WebElement elements = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[1]/div/div/div[1]/span/div"));
+        elements.click(); */
+
+        WebElement elementTable = driver.findElement(By.xpath("//*[@id=\"item-3\"]"));
+        elementTable.click();
+
+        WebElement add = driver.findElement(By.xpath("//*[@id=\"addNewRecordButton\"]"));
+        add.click();
+
+
+
+        WebElement firstName = driver.findElement(By.xpath("//*[@id=\"firstName\"]"));
+        firstName.click();
+        firstName.sendKeys("xxww");
+
+        WebElement lastName = driver.findElement(By.xpath("//*[@id=\"lastName\"]"));
+        lastName.click();
+        lastName.sendKeys("xxww");
+
+        WebElement eMail = driver.findElement(By.xpath("//*[@id=\"userEmail\"]"));
+        eMail.click();
+        eMail.sendKeys("xxxxxww@gmail.com");
+
+        WebElement age = driver.findElement(By.xpath("//*[@id=\"age\"]"));
+        age.click();
+        age.sendKeys("32");
+
+        WebElement maas = driver.findElement(By.xpath("//*[@id=\"salary\"]"));
+        maas.click();
+        maas.sendKeys("42000");
+
+        WebElement bolum = driver.findElement(By.xpath("//*[@id=\"department\"]"));
+        bolum.click();
+        bolum.sendKeys("QA");
+
+        WebElement gonder = driver.findElement(By.xpath("//*[@id=\"submit\"]"));
+        gonder.click();
+        gonder.sendKeys("QA");
+
+        // driver.quit();
+
+    }
+}
